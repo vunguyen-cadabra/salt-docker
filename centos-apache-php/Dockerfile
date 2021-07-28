@@ -4,7 +4,7 @@ LABEL version="1.0"
 
 RUN yum -y update
 
-# install httpd
+# install httpd 2.4
 RUN yum -y install httpd
 
 RUN yum -y install gmp-devel mpfr-devel libmpc-devel wget gcc
@@ -16,7 +16,7 @@ RUN yum install epel-release -y
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum -y install yum-utils
 
-# install php 7
+# install php 7.4
 RUN yum-config-manager --enable remi-php74 \
     && yum update -y \
     && yum --enablerepo=remi-php74 install php -y

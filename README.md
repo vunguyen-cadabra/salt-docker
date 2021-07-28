@@ -42,7 +42,7 @@ You may modify project paths <SOURCE DIRECTORY> in above directory with your loc
 
 Eg:
 ```
-SOURCE_PATH=../laravel-vue-project
+SOURCE_PATH=../salt_crm
 ```
 
 - Modify others configurations if needed.</br>
@@ -86,7 +86,7 @@ http://localhost/
 Get inside a containner
 eg:
 ```bash
-    docker exec -it docker_phpfpm_1 bash
+    docker exec -it docker-salt_localsalt_1 bash
 ```
 
 Show docker images (run on host machine)

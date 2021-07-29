@@ -24,7 +24,6 @@ RUN yum-config-manager --enable remi-php74 \
 RUN yum -y install php php-fpm php-mcrypt php-cli php-common php-devel php-gd php-mbstring php-mysqlnd php-opcache php-pdo php-pear php-pecl-apcu php-pecl-zip php-intl php-process php-xml php-pecl-xdebug php-xdebug git php-ldap php-pecl-memcached php-pgsql php-pecl-redis php-pecl-memcache php-gd  php-zib
 
 RUN yum -y install policycoreutils-python
-RUN setenforce Permissive
 
 # install imagick
 RUN yum -y install php-pecl-imagick

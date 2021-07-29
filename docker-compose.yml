@@ -1,20 +1,33 @@
 version: '3.6'
 services:
-    localsalt:
+    saltold:
         build: './centos-apache-php'
-        image: localsalt
+        image: salt-old
         links:
         - mysql56
         ports:
-        - ${APP_PORT}:80
-        - ${APP_SSL_PORT}:443
+        - ${APP_OLD_PORT}:80
         volumes:
-        - ${SOURCE_PATH}:${VOLUME_PATH}
-        - ${HOST_CONF_PATH}:/opt/docker/etc/httpd/vhost.conf
+        - ${SOURCE_OLD_PATH}:${VOLUME_OLD_PATH}
+        - ./apache/vhost-old.conf:/opt/docker/etc/httpd/vhost.conf
         environment:
         - DB_HOST=mysql56
         - PHP_MEMORY_LIMIT=128M
 
+    saltnew:
+        build: './centos-apache-php'
+        image: salt-new
+        links:
+        - mysql56
+        ports:
+        - ${APP_NEW_PORT}:80
+        volumes:
+        - ${SOURCE_NEW_PATH}:${VOLUME_NEW_PATH}
+        - ./apache/vhost-new.conf:/opt/docker/etc/httpd/vhost.conf
+        environment:
+        - DB_HOST=mysql56
+        - PHP_MEMORY_LIMIT=128M
+    
     mysql56:
         image: mysql:5.6
         ports:
